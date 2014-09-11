@@ -1,0 +1,11 @@
+#arr{
+	display: block;
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	margin-top: 60px;
+}
+body{
+	width: 900px;
+	height: 900px;
+}

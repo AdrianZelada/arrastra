@@ -1,0 +1,9 @@
+
+/********************************************************************/
+/*                                                                  */
+/*  Copyright (c) 2014       Adrian Pedro Zelada Torrez             */
+/*                                                                  */
+/*                                                                  */
+/********************************************************************/
+
+var x=0;var y=0;var x1=0;var y1=0;var t;var z=0;var K;G();function G(){document.onmousedown=OnMouseDown;document.onmouseup=OnMouseUp;};function OnMouseDown(e){if(e==null)e=window.event;var h=e.target!=null?e.target:e.srcElement;if(h.getAttribute('value')){if(h.getAttribute('value').split(' ')[0]=='dragdrop'){var T=h.getAttribute('value').split(' ');var drag=T[0];var type=parseInt(T[1]);var sw=false;var O="abcdefghyjklmnñopqrstuvwxyz";if(T[1]!=undefined){T[1]=T[1].toLowerCase();for(i=0;i<T[1].length+0;i++){if(O.indexOf(T[1].charAt(i),0)!= -1){sw=true;}}}if((e.button==1&&window.event!=null||e.button==0)&&(type>0||isNaN(type)!=false)&&sw==false){K=h.style.position;h.style.position='relative';h.style.cursor='move';x=e.clientX;y=e.clientY;x1=J(h.style.left);y1=J(h.style.top);z=h.style.zIndex;h.style.zIndex=10000;t=h;document.onmousemove=OnMouseMove;if(type>0){if(type-1==0){h.setAttribute('value','');}else{h.setAttribute('value','dragdrop '+String(type-1));}}document.body.focus();document.onselectstart=function(){return false;};h.ondragstart=function(){return false;};return false;}}}};function J(value){var n=parseInt(value);return n==null||isNaN(n)?0:n;};function OnMouseMove(e){t.style.left=(x1+e.clientX-x)+'px';t.style.top=(y1+e.clientY-y)+'px';};function OnMouseUp(e){if(t!=null){t.style.zIndex=z;document.onmousemove=null;document.onselectstart=null;t.ondragstart=null;t=null;}}
